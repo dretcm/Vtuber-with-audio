@@ -73,6 +73,7 @@ class Vt(QWidget):
 
         def set_sensivility(self, value):
                 self.sensivility = value
+                self.limit = value + 10
 
 
 if __name__=='__main__':
