@@ -80,6 +80,7 @@ class Interface(QWidget):
          def mute(self, state):
                 if state == Qt.Checked:
                         self.program.stream.stop()
+                        self.program.current = self.program.normal
                         self.stop_timer()
                 else:
                         self.program.stream.start()
