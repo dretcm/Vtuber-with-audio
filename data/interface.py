@@ -27,7 +27,7 @@ class Interface(QWidget):
         def initUI(self):
 
                 label = QLabel("Settings", self)
-                label.setGeometry(115,15,80,30)
+                label.setGeometry(10,15,80,30)
                 label.setStyleSheet('''
                                 text-decoration: underline;
                                 font: 16pt "MS Shell Dlg 2"
@@ -44,7 +44,11 @@ class Interface(QWidget):
                 self.label = QLabel("2", self)
                 self.label.setGeometry(270,64,70,20)
                 label.setStyleSheet('font: 10pt "MS Shell Dlg 2"')
-                
+
+                cb = QCheckBox('Mute', self)
+                cb.setGeometry(150,18,50,30)
+                # cb.toggle()
+                cb.stateChanged.connect(self.mute)
                 
                 self.slider = QSlider(Qt.Horizontal, self)
                 self.slider.setGeometry(90,67,170,20)
@@ -73,6 +77,14 @@ class Interface(QWidget):
                 self.start.clicked.connect(self.start_process)
                 self.stop.clicked.connect(self.stop_process)
                 
+         def mute(self, state):
+                if state == Qt.Checked:
+                        self.program.stream.stop()
+                        self.stop_timer()
+                else:
+                        self.program.stream.start()
+                        self.timer.start()
+                        
         def update_volume(self):
                 try:
                         self.bar.setValue(min(30, int(self.program.volume)))
@@ -98,15 +110,17 @@ class Interface(QWidget):
         def stop_process(self):
                 try:
                         self.start.setEnabled(True)
-                        self.timer.stop()
-                        self.bar.setValue(0)
+                        self.stop_timer()
 
                         self.program.stop()
                         
                 except Exception as e:
                         Dialogs.dialog(text=str(e))                        
 
-                
+        def stop_timer(self):
+                        self.timer.stop()
+                        self.bar.setValue(0)
+                        
 if __name__ == '__main__':
         app = QApplication(sys.argv)
         ex = Interface()
