@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton, QMessageBox, QProgressBar, QSlider
+from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton, QMessageBox, QProgressBar, QSlider, QCheckBox
 from PyQt5.QtCore import Qt
 from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
