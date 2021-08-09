@@ -7,7 +7,7 @@ if __name__ == "__main__":
         try:
                 app = QApplication(sys.argv)
                 
-                ex = Interface()
+                program = Interface()
                 sys.exit(app.exec_())
         except Exception as e:
                 Dialogs.dialog(text=str(e))
