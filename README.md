@@ -11,6 +11,9 @@ Install .exe:
 1. open the cmd and type
 ```
 C:\Users\USUARIO> pip install pyinstaller
+C:\Users\USUARIO> pip install pyqt5
+C:\Users\USUARIO> pip install sounddevice
+C:\Users\USUARIO> pip install numpy
 ```
 3. cd to the folder of file main.py:
 ```
