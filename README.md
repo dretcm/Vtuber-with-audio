@@ -23,6 +23,11 @@ C:\Users\USUARIO> cd C:\...\my apps
 
 ```
 C:\...\my apps> pyinstaller main.py --onefile --noconsole -i data\images\yasu.ico
+
+// or 
+
+py -3.9 -m PyInstaller main.py --onefile --noconsole -i data\images\yasu.ico
 ```
+
 4. move the file "...my apps\dist\main.exe" to "...\my apps\".
 5. remove "dist", "main.txt", "build".
